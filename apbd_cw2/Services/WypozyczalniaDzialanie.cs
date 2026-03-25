@@ -92,7 +92,7 @@ public class WypozyczalniaDzialanie
         
         if (dniOpoznienia > 0)
         {
-            int kara = dniOpoznienia * 15; 
+            int kara = dniOpoznienia * 35 + 21; 
             
             Console.WriteLine($"Po terminie! Dni spóźnienia: {dniOpoznienia}. KARA: {kara} PLN.");
         }

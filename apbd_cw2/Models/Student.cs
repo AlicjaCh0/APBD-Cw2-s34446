@@ -4,7 +4,8 @@ public class Student : Uzytkownik
 {
     public override string Typ => "Student";
 
-    public override int LimitWypozyczen { get; }
+    public override int LimitWypozyczen => 2;
+    
 
     public Student(string imie, string nazwisko) : base(imie, nazwisko)
     {
