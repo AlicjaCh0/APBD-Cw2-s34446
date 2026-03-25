@@ -57,5 +57,49 @@ public class WypozyczalniaDzialanie
         Console.WriteLine($"{uzytkownik.Imie} wypożyczył {sprzet.Nazwa} na {naIle} dni.");
 
     }
+    
+    
+    
+    public void ZwrotSprzetu(Uzytkownik uzytkownik, Sprzet sprzet)
+    {
+        Wypozyczenie znalezioneWypozyczenie = null;
+
+        for (int i = 0; i < _wypozyczone.Count; i++)
+        {
+            Wypozyczenie w = _wypozyczone[i];
+            
+            if (w.KtoWypozycza.Id == uzytkownik.Id && w.WypozyczonySprzet.Id == sprzet.Id && w.DataFaktycznegoZwrotu == null)
+            {
+                znalezioneWypozyczenie = w;
+                break;
+            }
+        }
+
+        if (znalezioneWypozyczenie == null)
+        {
+            Console.WriteLine("Podany użytkownik nie wypożyczył tego sprzętu");
+            return;
+        }
+
+
+        sprzet.CzyDostepny = true;
+        
+        znalezioneWypozyczenie.OznaczZwrocone();
+
+        TimeSpan roznica = znalezioneWypozyczenie.DataFaktycznegoZwrotu.Value - znalezioneWypozyczenie.KiedyZwrot;
+
+        int dniOpoznienia = (int)roznica.TotalDays;
+        
+        if (dniOpoznienia > 0)
+        {
+            int kara = dniOpoznienia * 15; 
+            
+            Console.WriteLine($"Po terminie! Dni spóźnienia: {dniOpoznienia}. KARA: {kara} PLN.");
+        }
+        else
+        {
+            Console.WriteLine($"{uzytkownik.Imie} zwrócił {sprzet.Nazwa} w terminie.");
+        }
+    }
 
 }
