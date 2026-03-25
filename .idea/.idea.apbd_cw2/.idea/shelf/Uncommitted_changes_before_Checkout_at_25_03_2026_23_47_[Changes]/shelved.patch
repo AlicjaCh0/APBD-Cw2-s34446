@@ -1,0 +1,16 @@
+Index: apbd_cw2/Models/Laptop.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>namespace apbd_cw2.Models;\r\n\r\npublic class Laptop : Sprzet\r\n{\r\n    public int RamGb { get; set; }\r\n    public string Procesor { get; set; }\r\n    \r\n    public bool CzyDostepny { get; set; } = true;\r\n\r\n\r\n    public Laptop(string nazwa,int ramgb,string procesor) : base(nazwa)\r\n    {\r\n        RamGb = ramgb;\r\n        Procesor = procesor;\r\n        \r\n    }\r\n\r\n}
+===================================================================
+diff --git a/apbd_cw2/Models/Laptop.cs b/apbd_cw2/Models/Laptop.cs
+--- a/apbd_cw2/Models/Laptop.cs	(revision 509d20308845594ad6275bd61deae47b73042ed2)
++++ b/apbd_cw2/Models/Laptop.cs	(date 1774474404158)
+@@ -5,7 +5,6 @@
+     public int RamGb { get; set; }
+     public string Procesor { get; set; }
+     
+-    public bool CzyDostepny { get; set; } = true;
+ 
+ 
+     public Laptop(string nazwa,int ramgb,string procesor) : base(nazwa)

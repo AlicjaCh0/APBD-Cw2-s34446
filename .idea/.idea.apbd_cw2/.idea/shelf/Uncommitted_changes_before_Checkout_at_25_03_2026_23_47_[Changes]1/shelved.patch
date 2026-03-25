@@ -1,0 +1,1047 @@
+Index: apbd_cw2/Models/Sprzet.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>namespace apbd_cw2.Models; \r\n\r\npublic abstract class Sprzet\r\n{\r\n    \r\n    private static int _nextId = 1;\r\n    \r\n    public string Nazwa { get; set; }\r\n    \r\n    public bool CzyDostepny { get; set; } = true;\r\n\r\n    public Sprzet(String nazwa1)\r\n    {\r\n        Nazwa = nazwa1;\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/apbd_cw2/Models/Sprzet.cs b/apbd_cw2/Models/Sprzet.cs
+--- a/apbd_cw2/Models/Sprzet.cs	(revision 509d20308845594ad6275bd61deae47b73042ed2)
++++ b/apbd_cw2/Models/Sprzet.cs	(date 1774474368447)
+@@ -5,6 +5,8 @@
+     
+     private static int _nextId = 1;
+     
++    public int Id { get; private set; }
++    
+     public string Nazwa { get; set; }
+     
+     public bool CzyDostepny { get; set; } = true;
+@@ -12,6 +14,7 @@
+     public Sprzet(String nazwa1)
+     {
+         Nazwa = nazwa1;
++        Id = _nextId++;
+     }
+ 
+ }
+\ No newline at end of file
+Index: .idea/.idea.apbd_cw2/.idea/.gitignore
+===================================================================
+diff --git a/.idea/.idea.apbd_cw2/.idea/.gitignore b/.idea/.idea.apbd_cw2/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1774395103823)
++++ b/.idea/.idea.apbd_cw2/.idea/.gitignore	(date 1774395103823)
+@@ -0,0 +1,15 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Rider ignored files
++/.idea.apbd_cw2.iml
++/projectSettingsUpdater.xml
++/contentModel.xml
++/modules.xml
++# Ignored default folder with query files
++/queries/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
++# Editor-based HTTP Client requests
++/httpRequests/
+Index: apbd_cw2/bin/Debug/net10.0/apbd_cw2.runtimeconfig.json
+===================================================================
+diff --git a/apbd_cw2/bin/Debug/net10.0/apbd_cw2.runtimeconfig.json b/apbd_cw2/bin/Debug/net10.0/apbd_cw2.runtimeconfig.json
+new file mode 100644
+--- /dev/null	(date 1774464000033)
++++ b/apbd_cw2/bin/Debug/net10.0/apbd_cw2.runtimeconfig.json	(date 1774464000033)
+@@ -0,0 +1,12 @@
++{
++  "runtimeOptions": {
++    "tfm": "net10.0",
++    "framework": {
++      "name": "Microsoft.NETCore.App",
++      "version": "10.0.0"
++    },
++    "configProperties": {
++      "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false
++    }
++  }
++}
+\ No newline at end of file
+Index: apbd_cw2/bin/Debug/net10.0/apbd_cw2.deps.json
+===================================================================
+diff --git a/apbd_cw2/bin/Debug/net10.0/apbd_cw2.deps.json b/apbd_cw2/bin/Debug/net10.0/apbd_cw2.deps.json
+new file mode 100644
+--- /dev/null	(date 1774477057781)
++++ b/apbd_cw2/bin/Debug/net10.0/apbd_cw2.deps.json	(date 1774477057781)
+@@ -0,0 +1,23 @@
++{
++  "runtimeTarget": {
++    "name": ".NETCoreApp,Version=v10.0",
++    "signature": ""
++  },
++  "compilationOptions": {},
++  "targets": {
++    ".NETCoreApp,Version=v10.0": {
++      "apbd_cw2/1.0.0": {
++        "runtime": {
++          "apbd_cw2.dll": {}
++        }
++      }
++    }
++  },
++  "libraries": {
++    "apbd_cw2/1.0.0": {
++      "type": "project",
++      "serviceable": false,
++      "sha512": ""
++    }
++  }
++}
+\ No newline at end of file
+Index: apbd_cw2/apbd_cw2.csproj
+===================================================================
+diff --git a/apbd_cw2/apbd_cw2.csproj b/apbd_cw2/apbd_cw2.csproj
+new file mode 100644
+--- /dev/null	(date 1774476493948)
++++ b/apbd_cw2/apbd_cw2.csproj	(date 1774476493948)
+@@ -0,0 +1,10 @@
++<Project Sdk="Microsoft.NET.Sdk">
++
++    <PropertyGroup>
++        <OutputType>Exe</OutputType>
++        <TargetFramework>net10.0</TargetFramework>
++        <ImplicitUsings>enable</ImplicitUsings>
++        <Nullable>enable</Nullable>
++    </PropertyGroup>
++
++</Project>
+Index: apbd_cw2.sln
+===================================================================
+diff --git a/apbd_cw2.sln b/apbd_cw2.sln
+new file mode 100644
+--- /dev/null	(date 1774464106734)
++++ b/apbd_cw2.sln	(date 1774464106734)
+@@ -0,0 +1,16 @@
++
++Microsoft Visual Studio Solution File, Format Version 12.00
++Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apbd_cw2", "apbd_cw2\apbd_cw2.csproj", "{4AD72633-6DAD-4456-BD3F-CC796591CF0B}"
++EndProject
++Global
++	GlobalSection(SolutionConfigurationPlatforms) = preSolution
++		Debug|Any CPU = Debug|Any CPU
++		Release|Any CPU = Release|Any CPU
++	EndGlobalSection
++	GlobalSection(ProjectConfigurationPlatforms) = postSolution
++		{4AD72633-6DAD-4456-BD3F-CC796591CF0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
++		{4AD72633-6DAD-4456-BD3F-CC796591CF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
++		{4AD72633-6DAD-4456-BD3F-CC796591CF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
++		{4AD72633-6DAD-4456-BD3F-CC796591CF0B}.Release|Any CPU.Build.0 = Release|Any CPU
++	EndGlobalSection
++EndGlobal
+Index: apbd_cw2/obj/apbd_cw2.csproj.nuget.dgspec.json
+===================================================================
+diff --git a/apbd_cw2/obj/apbd_cw2.csproj.nuget.dgspec.json b/apbd_cw2/obj/apbd_cw2.csproj.nuget.dgspec.json
+new file mode 100644
+--- /dev/null	(date 1774462517455)
++++ b/apbd_cw2/obj/apbd_cw2.csproj.nuget.dgspec.json	(date 1774462517455)
+@@ -0,0 +1,341 @@
++{
++  "format": 1,
++  "restore": {
++    "C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\apbd_cw2.csproj": {}
++  },
++  "projects": {
++    "C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\apbd_cw2.csproj": {
++      "version": "1.0.0",
++      "restore": {
++        "projectUniqueName": "C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\apbd_cw2.csproj",
++        "projectName": "apbd_cw2",
++        "projectPath": "C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\apbd_cw2.csproj",
++        "packagesPath": "C:\\Users\\admina\\.nuget\\packages\\",
++        "outputPath": "C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\obj\\",
++        "projectStyle": "PackageReference",
++        "configFilePaths": [
++          "C:\\Users\\admina\\AppData\\Roaming\\NuGet\\NuGet.Config"
++        ],
++        "originalTargetFrameworks": [
++          "net10.0"
++        ],
++        "sources": {
++          "https://api.nuget.org/v3/index.json": {}
++        },
++        "frameworks": {
++          "net10.0": {
++            "targetAlias": "net10.0",
++            "projectReferences": {}
++          }
++        },
++        "warningProperties": {
++          "warnAsError": [
++            "NU1605"
++          ]
++        },
++        "restoreAuditProperties": {
++          "enableAudit": "true",
++          "auditLevel": "low",
++          "auditMode": "all"
++        },
++        "SdkAnalysisLevel": "10.0.200"
++      },
++      "frameworks": {
++        "net10.0": {
++          "targetAlias": "net10.0",
++          "imports": [
++            "net461",
++            "net462",
++            "net47",
++            "net471",
++            "net472",
++            "net48",
++            "net481"
++          ],
++          "assetTargetFallback": true,
++          "warn": true,
++          "frameworkReferences": {
++            "Microsoft.NETCore.App": {
++              "privateAssets": "all"
++            }
++          },
++          "runtimeIdentifierGraphPath": "C:\\Users\\admina\\.dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
++          "packagesToPrune": {
++            "Microsoft.CSharp": "(,4.7.32767]",
++            "Microsoft.VisualBasic": "(,10.4.32767]",
++            "Microsoft.Win32.Primitives": "(,4.3.32767]",
++            "Microsoft.Win32.Registry": "(,5.0.32767]",
++            "runtime.any.System.Collections": "(,4.3.32767]",
++            "runtime.any.System.Diagnostics.Tools": "(,4.3.32767]",
++            "runtime.any.System.Diagnostics.Tracing": "(,4.3.32767]",
++            "runtime.any.System.Globalization": "(,4.3.32767]",
++            "runtime.any.System.Globalization.Calendars": "(,4.3.32767]",
++            "runtime.any.System.IO": "(,4.3.32767]",
++            "runtime.any.System.Reflection": "(,4.3.32767]",
++            "runtime.any.System.Reflection.Extensions": "(,4.3.32767]",
++            "runtime.any.System.Reflection.Primitives": "(,4.3.32767]",
++            "runtime.any.System.Resources.ResourceManager": "(,4.3.32767]",
++            "runtime.any.System.Runtime": "(,4.3.32767]",
++            "runtime.any.System.Runtime.Handles": "(,4.3.32767]",
++            "runtime.any.System.Runtime.InteropServices": "(,4.3.32767]",
++            "runtime.any.System.Text.Encoding": "(,4.3.32767]",
++            "runtime.any.System.Text.Encoding.Extensions": "(,4.3.32767]",
++            "runtime.any.System.Threading.Tasks": "(,4.3.32767]",
++            "runtime.any.System.Threading.Timer": "(,4.3.32767]",
++            "runtime.aot.System.Collections": "(,4.3.32767]",
++            "runtime.aot.System.Diagnostics.Tools": "(,4.3.32767]",
++            "runtime.aot.System.Diagnostics.Tracing": "(,4.3.32767]",
++            "runtime.aot.System.Globalization": "(,4.3.32767]",
++            "runtime.aot.System.Globalization.Calendars": "(,4.3.32767]",
++            "runtime.aot.System.IO": "(,4.3.32767]",
++            "runtime.aot.System.Reflection": "(,4.3.32767]",
++            "runtime.aot.System.Reflection.Extensions": "(,4.3.32767]",
++            "runtime.aot.System.Reflection.Primitives": "(,4.3.32767]",
++            "runtime.aot.System.Resources.ResourceManager": "(,4.3.32767]",
++            "runtime.aot.System.Runtime": "(,4.3.32767]",
++            "runtime.aot.System.Runtime.Handles": "(,4.3.32767]",
++            "runtime.aot.System.Runtime.InteropServices": "(,4.3.32767]",
++            "runtime.aot.System.Text.Encoding": "(,4.3.32767]",
++            "runtime.aot.System.Text.Encoding.Extensions": "(,4.3.32767]",
++            "runtime.aot.System.Threading.Tasks": "(,4.3.32767]",
++            "runtime.aot.System.Threading.Timer": "(,4.3.32767]",
++            "runtime.debian.8-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.debian.8-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.debian.8-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.debian.8-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.debian.8-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.debian.9-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.debian.9-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.debian.9-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.debian.9-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.fedora.23-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.fedora.23-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.fedora.23-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.fedora.23-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.fedora.24-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.fedora.24-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.fedora.24-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.fedora.24-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.fedora.27-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.fedora.27-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.fedora.27-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.fedora.27-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.fedora.28-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.fedora.28-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.fedora.28-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.fedora.28-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.opensuse.13.2-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.opensuse.13.2-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.opensuse.13.2-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.opensuse.13.2-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.opensuse.42.1-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.opensuse.42.1-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.opensuse.42.1-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.opensuse.42.1-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.opensuse.42.3-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.opensuse.42.3-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.opensuse.42.3-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.opensuse.42.3-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.osx.10.10-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.osx.10.10-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.osx.10.10-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.osx.10.10-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple": "(,4.3.32767]",
++            "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.rhel.7-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.rhel.7-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.rhel.7-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.rhel.7-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.rhel.7-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.ubuntu.14.04-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.ubuntu.14.04-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.ubuntu.14.04-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.ubuntu.14.04-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.ubuntu.16.04-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.ubuntu.16.04-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.ubuntu.16.04-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.ubuntu.16.04-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.ubuntu.16.10-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.ubuntu.16.10-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.ubuntu.16.10-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.ubuntu.16.10-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++            "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++            "runtime.ubuntu.18.04-x64.runtime.native.System": "(,4.3.32767]",
++            "runtime.ubuntu.18.04-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.ubuntu.18.04-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++            "runtime.ubuntu.18.04-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++            "runtime.unix.Microsoft.Win32.Primitives": "(,4.3.32767]",
++            "runtime.unix.System.Console": "(,4.3.32767]",
++            "runtime.unix.System.Diagnostics.Debug": "(,4.3.32767]",
++            "runtime.unix.System.IO.FileSystem": "(,4.3.32767]",
++            "runtime.unix.System.Net.Primitives": "(,4.3.32767]",
++            "runtime.unix.System.Net.Sockets": "(,4.3.32767]",
++            "runtime.unix.System.Private.Uri": "(,4.3.32767]",
++            "runtime.unix.System.Runtime.Extensions": "(,4.3.32767]",
++            "runtime.win.Microsoft.Win32.Primitives": "(,4.3.32767]",
++            "runtime.win.System.Console": "(,4.3.32767]",
++            "runtime.win.System.Diagnostics.Debug": "(,4.3.32767]",
++            "runtime.win.System.IO.FileSystem": "(,4.3.32767]",
++            "runtime.win.System.Net.Primitives": "(,4.3.32767]",
++            "runtime.win.System.Net.Sockets": "(,4.3.32767]",
++            "runtime.win.System.Runtime.Extensions": "(,4.3.32767]",
++            "runtime.win10-arm-aot.runtime.native.System.IO.Compression": "(,4.0.32767]",
++            "runtime.win10-arm64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.win10-x64-aot.runtime.native.System.IO.Compression": "(,4.0.32767]",
++            "runtime.win10-x86-aot.runtime.native.System.IO.Compression": "(,4.0.32767]",
++            "runtime.win7-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.win7-x86.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "runtime.win7.System.Private.Uri": "(,4.3.32767]",
++            "runtime.win8-arm.runtime.native.System.IO.Compression": "(,4.3.32767]",
++            "System.AppContext": "(,4.3.32767]",
++            "System.Buffers": "(,5.0.32767]",
++            "System.Collections": "(,4.3.32767]",
++            "System.Collections.Concurrent": "(,4.3.32767]",
++            "System.Collections.Immutable": "(,10.0.32767]",
++            "System.Collections.NonGeneric": "(,4.3.32767]",
++            "System.Collections.Specialized": "(,4.3.32767]",
++            "System.ComponentModel": "(,4.3.32767]",
++            "System.ComponentModel.Annotations": "(,4.3.32767]",
++            "System.ComponentModel.EventBasedAsync": "(,4.3.32767]",
++            "System.ComponentModel.Primitives": "(,4.3.32767]",
++            "System.ComponentModel.TypeConverter": "(,4.3.32767]",
++            "System.Console": "(,4.3.32767]",
++            "System.Data.Common": "(,4.3.32767]",
++            "System.Data.DataSetExtensions": "(,4.4.32767]",
++            "System.Diagnostics.Contracts": "(,4.3.32767]",
++            "System.Diagnostics.Debug": "(,4.3.32767]",
++            "System.Diagnostics.DiagnosticSource": "(,10.0.32767]",
++            "System.Diagnostics.FileVersionInfo": "(,4.3.32767]",
++            "System.Diagnostics.Process": "(,4.3.32767]",
++            "System.Diagnostics.StackTrace": "(,4.3.32767]",
++            "System.Diagnostics.TextWriterTraceListener": "(,4.3.32767]",
++            "System.Diagnostics.Tools": "(,4.3.32767]",
++            "System.Diagnostics.TraceSource": "(,4.3.32767]",
++            "System.Diagnostics.Tracing": "(,4.3.32767]",
++            "System.Drawing.Primitives": "(,4.3.32767]",
++            "System.Dynamic.Runtime": "(,4.3.32767]",
++            "System.Formats.Asn1": "(,10.0.32767]",
++            "System.Formats.Tar": "(,10.0.32767]",
++            "System.Globalization": "(,4.3.32767]",
++            "System.Globalization.Calendars": "(,4.3.32767]",
++            "System.Globalization.Extensions": "(,4.3.32767]",
++            "System.IO": "(,4.3.32767]",
++            "System.IO.Compression": "(,4.3.32767]",
++            "System.IO.Compression.ZipFile": "(,4.3.32767]",
++            "System.IO.FileSystem": "(,4.3.32767]",
++            "System.IO.FileSystem.AccessControl": "(,4.4.32767]",
++            "System.IO.FileSystem.DriveInfo": "(,4.3.32767]",
++            "System.IO.FileSystem.Primitives": "(,4.3.32767]",
++            "System.IO.FileSystem.Watcher": "(,4.3.32767]",
++            "System.IO.IsolatedStorage": "(,4.3.32767]",
++            "System.IO.MemoryMappedFiles": "(,4.3.32767]",
++            "System.IO.Pipelines": "(,10.0.32767]",
++            "System.IO.Pipes": "(,4.3.32767]",
++            "System.IO.Pipes.AccessControl": "(,5.0.32767]",
++            "System.IO.UnmanagedMemoryStream": "(,4.3.32767]",
++            "System.Linq": "(,4.3.32767]",
++            "System.Linq.AsyncEnumerable": "(,10.0.32767]",
++            "System.Linq.Expressions": "(,4.3.32767]",
++            "System.Linq.Parallel": "(,4.3.32767]",
++            "System.Linq.Queryable": "(,4.3.32767]",
++            "System.Memory": "(,5.0.32767]",
++            "System.Net.Http": "(,4.3.32767]",
++            "System.Net.Http.Json": "(,10.0.32767]",
++            "System.Net.NameResolution": "(,4.3.32767]",
++            "System.Net.NetworkInformation": "(,4.3.32767]",
++            "System.Net.Ping": "(,4.3.32767]",
++            "System.Net.Primitives": "(,4.3.32767]",
++            "System.Net.Requests": "(,4.3.32767]",
++            "System.Net.Security": "(,4.3.32767]",
++            "System.Net.ServerSentEvents": "(,10.0.32767]",
++            "System.Net.Sockets": "(,4.3.32767]",
++            "System.Net.WebHeaderCollection": "(,4.3.32767]",
++            "System.Net.WebSockets": "(,4.3.32767]",
++            "System.Net.WebSockets.Client": "(,4.3.32767]",
++            "System.Numerics.Vectors": "(,5.0.32767]",
++            "System.ObjectModel": "(,4.3.32767]",
++            "System.Private.DataContractSerialization": "(,4.3.32767]",
++            "System.Private.Uri": "(,4.3.32767]",
++            "System.Reflection": "(,4.3.32767]",
++            "System.Reflection.DispatchProxy": "(,6.0.32767]",
++            "System.Reflection.Emit": "(,4.7.32767]",
++            "System.Reflection.Emit.ILGeneration": "(,4.7.32767]",
++            "System.Reflection.Emit.Lightweight": "(,4.7.32767]",
++            "System.Reflection.Extensions": "(,4.3.32767]",
++            "System.Reflection.Metadata": "(,10.0.32767]",
++            "System.Reflection.Primitives": "(,4.3.32767]",
++            "System.Reflection.TypeExtensions": "(,4.3.32767]",
++            "System.Resources.Reader": "(,4.3.32767]",
++            "System.Resources.ResourceManager": "(,4.3.32767]",
++            "System.Resources.Writer": "(,4.3.32767]",
++            "System.Runtime": "(,4.3.32767]",
++            "System.Runtime.CompilerServices.Unsafe": "(,7.0.32767]",
++            "System.Runtime.CompilerServices.VisualC": "(,4.3.32767]",
++            "System.Runtime.Extensions": "(,4.3.32767]",
++            "System.Runtime.Handles": "(,4.3.32767]",
++            "System.Runtime.InteropServices": "(,4.3.32767]",
++            "System.Runtime.InteropServices.RuntimeInformation": "(,4.3.32767]",
++            "System.Runtime.Loader": "(,4.3.32767]",
++            "System.Runtime.Numerics": "(,4.3.32767]",
++            "System.Runtime.Serialization.Formatters": "(,4.3.32767]",
++            "System.Runtime.Serialization.Json": "(,4.3.32767]",
++            "System.Runtime.Serialization.Primitives": "(,4.3.32767]",
++            "System.Runtime.Serialization.Xml": "(,4.3.32767]",
++            "System.Security.AccessControl": "(,6.0.32767]",
++            "System.Security.Claims": "(,4.3.32767]",
++            "System.Security.Cryptography.Algorithms": "(,4.3.32767]",
++            "System.Security.Cryptography.Cng": "(,5.0.32767]",
++            "System.Security.Cryptography.Csp": "(,4.3.32767]",
++            "System.Security.Cryptography.Encoding": "(,4.3.32767]",
++            "System.Security.Cryptography.OpenSsl": "(,5.0.32767]",
++            "System.Security.Cryptography.Primitives": "(,4.3.32767]",
++            "System.Security.Cryptography.X509Certificates": "(,4.3.32767]",
++            "System.Security.Principal": "(,4.3.32767]",
++            "System.Security.Principal.Windows": "(,5.0.32767]",
++            "System.Security.SecureString": "(,4.3.32767]",
++            "System.Text.Encoding": "(,4.3.32767]",
++            "System.Text.Encoding.CodePages": "(,10.0.32767]",
++            "System.Text.Encoding.Extensions": "(,4.3.32767]",
++            "System.Text.Encodings.Web": "(,10.0.32767]",
++            "System.Text.Json": "(,10.0.32767]",
++            "System.Text.RegularExpressions": "(,4.3.32767]",
++            "System.Threading": "(,4.3.32767]",
++            "System.Threading.AccessControl": "(,10.0.32767]",
++            "System.Threading.Channels": "(,10.0.32767]",
++            "System.Threading.Overlapped": "(,4.3.32767]",
++            "System.Threading.Tasks": "(,4.3.32767]",
++            "System.Threading.Tasks.Dataflow": "(,10.0.32767]",
++            "System.Threading.Tasks.Extensions": "(,5.0.32767]",
++            "System.Threading.Tasks.Parallel": "(,4.3.32767]",
++            "System.Threading.Thread": "(,4.3.32767]",
++            "System.Threading.ThreadPool": "(,4.3.32767]",
++            "System.Threading.Timer": "(,4.3.32767]",
++            "System.ValueTuple": "(,4.5.32767]",
++            "System.Xml.ReaderWriter": "(,4.3.32767]",
++            "System.Xml.XDocument": "(,4.3.32767]",
++            "System.Xml.XmlDocument": "(,4.3.32767]",
++            "System.Xml.XmlSerializer": "(,4.3.32767]",
++            "System.Xml.XPath": "(,4.3.32767]",
++            "System.Xml.XPath.XDocument": "(,5.0.32767]"
++          }
++        }
++      }
++    }
++  }
++}
+\ No newline at end of file
+Index: apbd_cw2/obj/rider.project.restore.info
+===================================================================
+diff --git a/apbd_cw2/obj/rider.project.restore.info b/apbd_cw2/obj/rider.project.restore.info
+new file mode 100644
+--- /dev/null	(date 1774462517739)
++++ b/apbd_cw2/obj/rider.project.restore.info	(date 1774462517739)
+@@ -0,0 +1,1 @@
++17744625174550058
+\ No newline at end of file
+Index: apbd_cw2/obj/rider.project.model.nuget.info
+===================================================================
+diff --git a/apbd_cw2/obj/rider.project.model.nuget.info b/apbd_cw2/obj/rider.project.model.nuget.info
+new file mode 100644
+--- /dev/null	(date 1774462508940)
++++ b/apbd_cw2/obj/rider.project.model.nuget.info	(date 1774462508940)
+@@ -0,0 +1,1 @@
++17743951305948983
+\ No newline at end of file
+Index: apbd_cw2/obj/apbd_cw2.csproj.nuget.g.targets
+===================================================================
+diff --git a/apbd_cw2/obj/apbd_cw2.csproj.nuget.g.targets b/apbd_cw2/obj/apbd_cw2.csproj.nuget.g.targets
+new file mode 100644
+--- /dev/null	(date 1774395130119)
++++ b/apbd_cw2/obj/apbd_cw2.csproj.nuget.g.targets	(date 1774395130119)
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8" standalone="no"?>
++<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+\ No newline at end of file
+Index: .idea/.idea.apbd_cw2/.idea/vcs.xml
+===================================================================
+diff --git a/.idea/.idea.apbd_cw2/.idea/vcs.xml b/.idea/.idea.apbd_cw2/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1774395439379)
++++ b/.idea/.idea.apbd_cw2/.idea/vcs.xml	(date 1774395439379)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: apbd_cw2/obj/project.assets.json
+===================================================================
+diff --git a/apbd_cw2/obj/project.assets.json b/apbd_cw2/obj/project.assets.json
+new file mode 100644
+--- /dev/null	(date 1774462517191)
++++ b/apbd_cw2/obj/project.assets.json	(date 1774462517191)
+@@ -0,0 +1,346 @@
++{
++  "version": 3,
++  "targets": {
++    "net10.0": {}
++  },
++  "libraries": {},
++  "projectFileDependencyGroups": {
++    "net10.0": []
++  },
++  "packageFolders": {
++    "C:\\Users\\admina\\.nuget\\packages\\": {}
++  },
++  "project": {
++    "version": "1.0.0",
++    "restore": {
++      "projectUniqueName": "C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\apbd_cw2.csproj",
++      "projectName": "apbd_cw2",
++      "projectPath": "C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\apbd_cw2.csproj",
++      "packagesPath": "C:\\Users\\admina\\.nuget\\packages\\",
++      "outputPath": "C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\obj\\",
++      "projectStyle": "PackageReference",
++      "configFilePaths": [
++        "C:\\Users\\admina\\AppData\\Roaming\\NuGet\\NuGet.Config"
++      ],
++      "originalTargetFrameworks": [
++        "net10.0"
++      ],
++      "sources": {
++        "https://api.nuget.org/v3/index.json": {}
++      },
++      "frameworks": {
++        "net10.0": {
++          "targetAlias": "net10.0",
++          "projectReferences": {}
++        }
++      },
++      "warningProperties": {
++        "warnAsError": [
++          "NU1605"
++        ]
++      },
++      "restoreAuditProperties": {
++        "enableAudit": "true",
++        "auditLevel": "low",
++        "auditMode": "all"
++      },
++      "SdkAnalysisLevel": "10.0.200"
++    },
++    "frameworks": {
++      "net10.0": {
++        "targetAlias": "net10.0",
++        "imports": [
++          "net461",
++          "net462",
++          "net47",
++          "net471",
++          "net472",
++          "net48",
++          "net481"
++        ],
++        "assetTargetFallback": true,
++        "warn": true,
++        "frameworkReferences": {
++          "Microsoft.NETCore.App": {
++            "privateAssets": "all"
++          }
++        },
++        "runtimeIdentifierGraphPath": "C:\\Users\\admina\\.dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
++        "packagesToPrune": {
++          "Microsoft.CSharp": "(,4.7.32767]",
++          "Microsoft.VisualBasic": "(,10.4.32767]",
++          "Microsoft.Win32.Primitives": "(,4.3.32767]",
++          "Microsoft.Win32.Registry": "(,5.0.32767]",
++          "runtime.any.System.Collections": "(,4.3.32767]",
++          "runtime.any.System.Diagnostics.Tools": "(,4.3.32767]",
++          "runtime.any.System.Diagnostics.Tracing": "(,4.3.32767]",
++          "runtime.any.System.Globalization": "(,4.3.32767]",
++          "runtime.any.System.Globalization.Calendars": "(,4.3.32767]",
++          "runtime.any.System.IO": "(,4.3.32767]",
++          "runtime.any.System.Reflection": "(,4.3.32767]",
++          "runtime.any.System.Reflection.Extensions": "(,4.3.32767]",
++          "runtime.any.System.Reflection.Primitives": "(,4.3.32767]",
++          "runtime.any.System.Resources.ResourceManager": "(,4.3.32767]",
++          "runtime.any.System.Runtime": "(,4.3.32767]",
++          "runtime.any.System.Runtime.Handles": "(,4.3.32767]",
++          "runtime.any.System.Runtime.InteropServices": "(,4.3.32767]",
++          "runtime.any.System.Text.Encoding": "(,4.3.32767]",
++          "runtime.any.System.Text.Encoding.Extensions": "(,4.3.32767]",
++          "runtime.any.System.Threading.Tasks": "(,4.3.32767]",
++          "runtime.any.System.Threading.Timer": "(,4.3.32767]",
++          "runtime.aot.System.Collections": "(,4.3.32767]",
++          "runtime.aot.System.Diagnostics.Tools": "(,4.3.32767]",
++          "runtime.aot.System.Diagnostics.Tracing": "(,4.3.32767]",
++          "runtime.aot.System.Globalization": "(,4.3.32767]",
++          "runtime.aot.System.Globalization.Calendars": "(,4.3.32767]",
++          "runtime.aot.System.IO": "(,4.3.32767]",
++          "runtime.aot.System.Reflection": "(,4.3.32767]",
++          "runtime.aot.System.Reflection.Extensions": "(,4.3.32767]",
++          "runtime.aot.System.Reflection.Primitives": "(,4.3.32767]",
++          "runtime.aot.System.Resources.ResourceManager": "(,4.3.32767]",
++          "runtime.aot.System.Runtime": "(,4.3.32767]",
++          "runtime.aot.System.Runtime.Handles": "(,4.3.32767]",
++          "runtime.aot.System.Runtime.InteropServices": "(,4.3.32767]",
++          "runtime.aot.System.Text.Encoding": "(,4.3.32767]",
++          "runtime.aot.System.Text.Encoding.Extensions": "(,4.3.32767]",
++          "runtime.aot.System.Threading.Tasks": "(,4.3.32767]",
++          "runtime.aot.System.Threading.Timer": "(,4.3.32767]",
++          "runtime.debian.8-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.debian.8-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.debian.8-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.debian.8-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.debian.8-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.debian.9-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.debian.9-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.debian.9-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.debian.9-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.fedora.23-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.fedora.23-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.fedora.23-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.fedora.23-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.fedora.24-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.fedora.24-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.fedora.24-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.fedora.24-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.fedora.27-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.fedora.27-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.fedora.27-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.fedora.27-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.fedora.28-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.fedora.28-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.fedora.28-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.fedora.28-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.opensuse.13.2-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.opensuse.13.2-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.opensuse.13.2-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.opensuse.13.2-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.opensuse.42.1-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.opensuse.42.1-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.opensuse.42.1-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.opensuse.42.1-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.opensuse.42.3-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.opensuse.42.3-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.opensuse.42.3-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.opensuse.42.3-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.osx.10.10-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.osx.10.10-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.osx.10.10-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.osx.10.10-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple": "(,4.3.32767]",
++          "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.rhel.7-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.rhel.7-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.rhel.7-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.rhel.7-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.rhel.7-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.ubuntu.14.04-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.ubuntu.14.04-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.ubuntu.14.04-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.ubuntu.14.04-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.ubuntu.16.04-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.ubuntu.16.04-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.ubuntu.16.04-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.ubuntu.16.04-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.ubuntu.16.10-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.ubuntu.16.10-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.ubuntu.16.10-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.ubuntu.16.10-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography": "(,4.3.32767]",
++          "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl": "(,4.3.32767]",
++          "runtime.ubuntu.18.04-x64.runtime.native.System": "(,4.3.32767]",
++          "runtime.ubuntu.18.04-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.ubuntu.18.04-x64.runtime.native.System.Net.Http": "(,4.3.32767]",
++          "runtime.ubuntu.18.04-x64.runtime.native.System.Net.Security": "(,4.3.32767]",
++          "runtime.unix.Microsoft.Win32.Primitives": "(,4.3.32767]",
++          "runtime.unix.System.Console": "(,4.3.32767]",
++          "runtime.unix.System.Diagnostics.Debug": "(,4.3.32767]",
++          "runtime.unix.System.IO.FileSystem": "(,4.3.32767]",
++          "runtime.unix.System.Net.Primitives": "(,4.3.32767]",
++          "runtime.unix.System.Net.Sockets": "(,4.3.32767]",
++          "runtime.unix.System.Private.Uri": "(,4.3.32767]",
++          "runtime.unix.System.Runtime.Extensions": "(,4.3.32767]",
++          "runtime.win.Microsoft.Win32.Primitives": "(,4.3.32767]",
++          "runtime.win.System.Console": "(,4.3.32767]",
++          "runtime.win.System.Diagnostics.Debug": "(,4.3.32767]",
++          "runtime.win.System.IO.FileSystem": "(,4.3.32767]",
++          "runtime.win.System.Net.Primitives": "(,4.3.32767]",
++          "runtime.win.System.Net.Sockets": "(,4.3.32767]",
++          "runtime.win.System.Runtime.Extensions": "(,4.3.32767]",
++          "runtime.win10-arm-aot.runtime.native.System.IO.Compression": "(,4.0.32767]",
++          "runtime.win10-arm64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.win10-x64-aot.runtime.native.System.IO.Compression": "(,4.0.32767]",
++          "runtime.win10-x86-aot.runtime.native.System.IO.Compression": "(,4.0.32767]",
++          "runtime.win7-x64.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.win7-x86.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "runtime.win7.System.Private.Uri": "(,4.3.32767]",
++          "runtime.win8-arm.runtime.native.System.IO.Compression": "(,4.3.32767]",
++          "System.AppContext": "(,4.3.32767]",
++          "System.Buffers": "(,5.0.32767]",
++          "System.Collections": "(,4.3.32767]",
++          "System.Collections.Concurrent": "(,4.3.32767]",
++          "System.Collections.Immutable": "(,10.0.32767]",
++          "System.Collections.NonGeneric": "(,4.3.32767]",
++          "System.Collections.Specialized": "(,4.3.32767]",
++          "System.ComponentModel": "(,4.3.32767]",
++          "System.ComponentModel.Annotations": "(,4.3.32767]",
++          "System.ComponentModel.EventBasedAsync": "(,4.3.32767]",
++          "System.ComponentModel.Primitives": "(,4.3.32767]",
++          "System.ComponentModel.TypeConverter": "(,4.3.32767]",
++          "System.Console": "(,4.3.32767]",
++          "System.Data.Common": "(,4.3.32767]",
++          "System.Data.DataSetExtensions": "(,4.4.32767]",
++          "System.Diagnostics.Contracts": "(,4.3.32767]",
++          "System.Diagnostics.Debug": "(,4.3.32767]",
++          "System.Diagnostics.DiagnosticSource": "(,10.0.32767]",
++          "System.Diagnostics.FileVersionInfo": "(,4.3.32767]",
++          "System.Diagnostics.Process": "(,4.3.32767]",
++          "System.Diagnostics.StackTrace": "(,4.3.32767]",
++          "System.Diagnostics.TextWriterTraceListener": "(,4.3.32767]",
++          "System.Diagnostics.Tools": "(,4.3.32767]",
++          "System.Diagnostics.TraceSource": "(,4.3.32767]",
++          "System.Diagnostics.Tracing": "(,4.3.32767]",
++          "System.Drawing.Primitives": "(,4.3.32767]",
++          "System.Dynamic.Runtime": "(,4.3.32767]",
++          "System.Formats.Asn1": "(,10.0.32767]",
++          "System.Formats.Tar": "(,10.0.32767]",
++          "System.Globalization": "(,4.3.32767]",
++          "System.Globalization.Calendars": "(,4.3.32767]",
++          "System.Globalization.Extensions": "(,4.3.32767]",
++          "System.IO": "(,4.3.32767]",
++          "System.IO.Compression": "(,4.3.32767]",
++          "System.IO.Compression.ZipFile": "(,4.3.32767]",
++          "System.IO.FileSystem": "(,4.3.32767]",
++          "System.IO.FileSystem.AccessControl": "(,4.4.32767]",
++          "System.IO.FileSystem.DriveInfo": "(,4.3.32767]",
++          "System.IO.FileSystem.Primitives": "(,4.3.32767]",
++          "System.IO.FileSystem.Watcher": "(,4.3.32767]",
++          "System.IO.IsolatedStorage": "(,4.3.32767]",
++          "System.IO.MemoryMappedFiles": "(,4.3.32767]",
++          "System.IO.Pipelines": "(,10.0.32767]",
++          "System.IO.Pipes": "(,4.3.32767]",
++          "System.IO.Pipes.AccessControl": "(,5.0.32767]",
++          "System.IO.UnmanagedMemoryStream": "(,4.3.32767]",
++          "System.Linq": "(,4.3.32767]",
++          "System.Linq.AsyncEnumerable": "(,10.0.32767]",
++          "System.Linq.Expressions": "(,4.3.32767]",
++          "System.Linq.Parallel": "(,4.3.32767]",
++          "System.Linq.Queryable": "(,4.3.32767]",
++          "System.Memory": "(,5.0.32767]",
++          "System.Net.Http": "(,4.3.32767]",
++          "System.Net.Http.Json": "(,10.0.32767]",
++          "System.Net.NameResolution": "(,4.3.32767]",
++          "System.Net.NetworkInformation": "(,4.3.32767]",
++          "System.Net.Ping": "(,4.3.32767]",
++          "System.Net.Primitives": "(,4.3.32767]",
++          "System.Net.Requests": "(,4.3.32767]",
++          "System.Net.Security": "(,4.3.32767]",
++          "System.Net.ServerSentEvents": "(,10.0.32767]",
++          "System.Net.Sockets": "(,4.3.32767]",
++          "System.Net.WebHeaderCollection": "(,4.3.32767]",
++          "System.Net.WebSockets": "(,4.3.32767]",
++          "System.Net.WebSockets.Client": "(,4.3.32767]",
++          "System.Numerics.Vectors": "(,5.0.32767]",
++          "System.ObjectModel": "(,4.3.32767]",
++          "System.Private.DataContractSerialization": "(,4.3.32767]",
++          "System.Private.Uri": "(,4.3.32767]",
++          "System.Reflection": "(,4.3.32767]",
++          "System.Reflection.DispatchProxy": "(,6.0.32767]",
++          "System.Reflection.Emit": "(,4.7.32767]",
++          "System.Reflection.Emit.ILGeneration": "(,4.7.32767]",
++          "System.Reflection.Emit.Lightweight": "(,4.7.32767]",
++          "System.Reflection.Extensions": "(,4.3.32767]",
++          "System.Reflection.Metadata": "(,10.0.32767]",
++          "System.Reflection.Primitives": "(,4.3.32767]",
++          "System.Reflection.TypeExtensions": "(,4.3.32767]",
++          "System.Resources.Reader": "(,4.3.32767]",
++          "System.Resources.ResourceManager": "(,4.3.32767]",
++          "System.Resources.Writer": "(,4.3.32767]",
++          "System.Runtime": "(,4.3.32767]",
++          "System.Runtime.CompilerServices.Unsafe": "(,7.0.32767]",
++          "System.Runtime.CompilerServices.VisualC": "(,4.3.32767]",
++          "System.Runtime.Extensions": "(,4.3.32767]",
++          "System.Runtime.Handles": "(,4.3.32767]",
++          "System.Runtime.InteropServices": "(,4.3.32767]",
++          "System.Runtime.InteropServices.RuntimeInformation": "(,4.3.32767]",
++          "System.Runtime.Loader": "(,4.3.32767]",
++          "System.Runtime.Numerics": "(,4.3.32767]",
++          "System.Runtime.Serialization.Formatters": "(,4.3.32767]",
++          "System.Runtime.Serialization.Json": "(,4.3.32767]",
++          "System.Runtime.Serialization.Primitives": "(,4.3.32767]",
++          "System.Runtime.Serialization.Xml": "(,4.3.32767]",
++          "System.Security.AccessControl": "(,6.0.32767]",
++          "System.Security.Claims": "(,4.3.32767]",
++          "System.Security.Cryptography.Algorithms": "(,4.3.32767]",
++          "System.Security.Cryptography.Cng": "(,5.0.32767]",
++          "System.Security.Cryptography.Csp": "(,4.3.32767]",
++          "System.Security.Cryptography.Encoding": "(,4.3.32767]",
++          "System.Security.Cryptography.OpenSsl": "(,5.0.32767]",
++          "System.Security.Cryptography.Primitives": "(,4.3.32767]",
++          "System.Security.Cryptography.X509Certificates": "(,4.3.32767]",
++          "System.Security.Principal": "(,4.3.32767]",
++          "System.Security.Principal.Windows": "(,5.0.32767]",
++          "System.Security.SecureString": "(,4.3.32767]",
++          "System.Text.Encoding": "(,4.3.32767]",
++          "System.Text.Encoding.CodePages": "(,10.0.32767]",
++          "System.Text.Encoding.Extensions": "(,4.3.32767]",
++          "System.Text.Encodings.Web": "(,10.0.32767]",
++          "System.Text.Json": "(,10.0.32767]",
++          "System.Text.RegularExpressions": "(,4.3.32767]",
++          "System.Threading": "(,4.3.32767]",
++          "System.Threading.AccessControl": "(,10.0.32767]",
++          "System.Threading.Channels": "(,10.0.32767]",
++          "System.Threading.Overlapped": "(,4.3.32767]",
++          "System.Threading.Tasks": "(,4.3.32767]",
++          "System.Threading.Tasks.Dataflow": "(,10.0.32767]",
++          "System.Threading.Tasks.Extensions": "(,5.0.32767]",
++          "System.Threading.Tasks.Parallel": "(,4.3.32767]",
++          "System.Threading.Thread": "(,4.3.32767]",
++          "System.Threading.ThreadPool": "(,4.3.32767]",
++          "System.Threading.Timer": "(,4.3.32767]",
++          "System.ValueTuple": "(,4.5.32767]",
++          "System.Xml.ReaderWriter": "(,4.3.32767]",
++          "System.Xml.XDocument": "(,4.3.32767]",
++          "System.Xml.XmlDocument": "(,4.3.32767]",
++          "System.Xml.XmlSerializer": "(,4.3.32767]",
++          "System.Xml.XPath": "(,4.3.32767]",
++          "System.Xml.XPath.XDocument": "(,5.0.32767]"
++        }
++      }
++    }
++  }
++}
+\ No newline at end of file
+Index: .idea/.idea.apbd_cw2/.idea/encodings.xml
+===================================================================
+diff --git a/.idea/.idea.apbd_cw2/.idea/encodings.xml b/.idea/.idea.apbd_cw2/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1774395082537)
++++ b/.idea/.idea.apbd_cw2/.idea/encodings.xml	(date 1774395082537)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise" />
++</project>
+\ No newline at end of file
+Index: apbd_cw2/obj/apbd_cw2.csproj.nuget.g.props
+===================================================================
+diff --git a/apbd_cw2/obj/apbd_cw2.csproj.nuget.g.props b/apbd_cw2/obj/apbd_cw2.csproj.nuget.g.props
+new file mode 100644
+--- /dev/null	(date 1774395130111)
++++ b/apbd_cw2/obj/apbd_cw2.csproj.nuget.g.props	(date 1774395130111)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8" standalone="no"?>
++<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
++    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
++    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
++    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
++    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
++    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\admina\.nuget\packages\</NuGetPackageFolders>
++    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
++    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">7.0.0</NuGetToolVersion>
++  </PropertyGroup>
++  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
++    <SourceRoot Include="C:\Users\admina\.nuget\packages\" />
++  </ItemGroup>
++</Project>
+\ No newline at end of file
+Index: apbd_cw2/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+===================================================================
+diff --git a/apbd_cw2/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs b/apbd_cw2/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+new file mode 100644
+--- /dev/null	(date 1774395145959)
++++ b/apbd_cw2/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs	(date 1774395145959)
+@@ -0,0 +1,4 @@
++// <autogenerated />
++using System;
++using System.Reflection;
++[assembly: global::System.Runtime.Versioning.TargetFrameworkAttribute(".NETCoreApp,Version=v10.0", FrameworkDisplayName = ".NET 10.0")]
+Index: apbd_cw2/obj/Debug/net10.0/apbd_cw2.AssemblyInfo.cs
+===================================================================
+diff --git a/apbd_cw2/obj/Debug/net10.0/apbd_cw2.AssemblyInfo.cs b/apbd_cw2/obj/Debug/net10.0/apbd_cw2.AssemblyInfo.cs
+new file mode 100644
+--- /dev/null	(date 1774477057180)
++++ b/apbd_cw2/obj/Debug/net10.0/apbd_cw2.AssemblyInfo.cs	(date 1774477057180)
+@@ -0,0 +1,22 @@
++//------------------------------------------------------------------------------
++// <auto-generated>
++//     This code was generated by a tool.
++//
++//     Changes to this file may cause incorrect behavior and will be lost if
++//     the code is regenerated.
++// </auto-generated>
++//------------------------------------------------------------------------------
++
++using System;
++using System.Reflection;
++
++[assembly: System.Reflection.AssemblyCompanyAttribute("apbd_cw2")]
++[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
++[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
++[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a37787f60dec0c22e18ffa711bb456074abc93c9")]
++[assembly: System.Reflection.AssemblyProductAttribute("apbd_cw2")]
++[assembly: System.Reflection.AssemblyTitleAttribute("apbd_cw2")]
++[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
++
++// Wygenerowane przez klasę WriteCodeFragment programu MSBuild.
++
+Index: apbd_cw2/obj/Debug/net10.0/apbd_cw2.GeneratedMSBuildEditorConfig.editorconfig
+===================================================================
+diff --git a/apbd_cw2/obj/Debug/net10.0/apbd_cw2.GeneratedMSBuildEditorConfig.editorconfig b/apbd_cw2/obj/Debug/net10.0/apbd_cw2.GeneratedMSBuildEditorConfig.editorconfig
+new file mode 100644
+--- /dev/null	(date 1774395145917)
++++ b/apbd_cw2/obj/Debug/net10.0/apbd_cw2.GeneratedMSBuildEditorConfig.editorconfig	(date 1774395145917)
+@@ -0,0 +1,17 @@
++is_global = true
++build_property.TargetFramework = net10.0
++build_property.TargetFrameworkIdentifier = .NETCoreApp
++build_property.TargetFrameworkVersion = v10.0
++build_property.TargetPlatformMinVersion = 
++build_property.UsingMicrosoftNETSdkWeb = 
++build_property.ProjectTypeGuids = 
++build_property.InvariantGlobalization = 
++build_property.PlatformNeutralAssembly = 
++build_property.EnforceExtendedAnalyzerRules = 
++build_property._SupportedPlatformList = Linux,macOS,Windows
++build_property.RootNamespace = apbd_cw2
++build_property.ProjectDir = C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\
++build_property.EnableComHosting = 
++build_property.EnableGeneratedComInterfaceComImportInterop = 
++build_property.EffectiveAnalysisLevelStyle = 10.0
++build_property.EnableCodeStyleSeverity = 
+Index: apbd_cw2/obj/Debug/net10.0/apbd_cw2.GlobalUsings.g.cs
+===================================================================
+diff --git a/apbd_cw2/obj/Debug/net10.0/apbd_cw2.GlobalUsings.g.cs b/apbd_cw2/obj/Debug/net10.0/apbd_cw2.GlobalUsings.g.cs
+new file mode 100644
+--- /dev/null	(date 1774395145292)
++++ b/apbd_cw2/obj/Debug/net10.0/apbd_cw2.GlobalUsings.g.cs	(date 1774395145292)
+@@ -0,0 +1,8 @@
++// <auto-generated/>
++global using System;
++global using System.Collections.Generic;
++global using System.IO;
++global using System.Linq;
++global using System.Net.Http;
++global using System.Threading;
++global using System.Threading.Tasks;
+Index: apbd_cw2/obj/Debug/net10.0/apbd_cw2.csproj.FileListAbsolute.txt
+===================================================================
+diff --git a/apbd_cw2/obj/Debug/net10.0/apbd_cw2.csproj.FileListAbsolute.txt b/apbd_cw2/obj/Debug/net10.0/apbd_cw2.csproj.FileListAbsolute.txt
+new file mode 100644
+--- /dev/null	(date 1774476224018)
++++ b/apbd_cw2/obj/Debug/net10.0/apbd_cw2.csproj.FileListAbsolute.txt	(date 1774476224018)
+@@ -0,0 +1,15 @@
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\bin\Debug\net10.0\apbd_cw2.exe
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\bin\Debug\net10.0\apbd_cw2.deps.json
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\bin\Debug\net10.0\apbd_cw2.runtimeconfig.json
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\bin\Debug\net10.0\apbd_cw2.dll
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\bin\Debug\net10.0\apbd_cw2.pdb
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\apbd_cw2.GeneratedMSBuildEditorConfig.editorconfig
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\apbd_cw2.AssemblyInfoInputs.cache
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\apbd_cw2.AssemblyInfo.cs
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\apbd_cw2.csproj.CoreCompileInputs.cache
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\apbd_cw2.dll
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\refint\apbd_cw2.dll
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\apbd_cw2.pdb
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\apbd_cw2.genruntimeconfig.cache
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\ref\apbd_cw2.dll
++C:\Users\admina\Desktop\projekty_apbd\apbd_cw2\apbd_cw2\obj\Debug\net10.0\apbd_cw2.sourcelink.json
+Index: .idea/.idea.apbd_cw2/.idea/indexLayout.xml
+===================================================================
+diff --git a/.idea/.idea.apbd_cw2/.idea/indexLayout.xml b/.idea/.idea.apbd_cw2/.idea/indexLayout.xml
+new file mode 100644
+--- /dev/null	(date 1774395181269)
++++ b/.idea/.idea.apbd_cw2/.idea/indexLayout.xml	(date 1774395181269)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="UserContentModel">
++    <attachedFolders />
++    <explicitIncludes />
++    <explicitExcludes />
++  </component>
++</project>
+\ No newline at end of file
+Index: apbd_cw2/obj/project.packagespec.json
+===================================================================
+diff --git a/apbd_cw2/obj/project.packagespec.json b/apbd_cw2/obj/project.packagespec.json
+new file mode 100644
+--- /dev/null	(date 1774395146718)
++++ b/apbd_cw2/obj/project.packagespec.json	(date 1774395146718)
+@@ -0,0 +1,1 @@
++"restore":{"projectUniqueName":"C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\apbd_cw2.csproj","projectName":"apbd_cw2","projectPath":"C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\apbd_cw2.csproj","outputPath":"C:\\Users\\admina\\Desktop\\projekty_apbd\\apbd_cw2\\apbd_cw2\\obj\\","projectStyle":"PackageReference","originalTargetFrameworks":["net10.0"],"sources":{"https://api.nuget.org/v3/index.json":{}},"frameworks":{"net10.0":{"targetAlias":"net10.0","projectReferences":{}}},"warningProperties":{"warnAsError":["NU1605"]},"restoreAuditProperties":{"enableAudit":"true","auditLevel":"low","auditMode":"all"},"SdkAnalysisLevel":"10.0.200"}"frameworks":{"net10.0":{"targetAlias":"net10.0","imports":["net461","net462","net47","net471","net472","net48","net481"],"assetTargetFallback":true,"warn":true,"frameworkReferences":{"Microsoft.NETCore.App":{"privateAssets":"all"}},"runtimeIdentifierGraphPath":"C:\\Users\\admina\\.dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json","packagesToPrune":{"Microsoft.CSharp":"(,4.7.32767]","Microsoft.VisualBasic":"(,10.4.32767]","Microsoft.Win32.Primitives":"(,4.3.32767]","Microsoft.Win32.Registry":"(,5.0.32767]","runtime.any.System.Collections":"(,4.3.32767]","runtime.any.System.Diagnostics.Tools":"(,4.3.32767]","runtime.any.System.Diagnostics.Tracing":"(,4.3.32767]","runtime.any.System.Globalization":"(,4.3.32767]","runtime.any.System.Globalization.Calendars":"(,4.3.32767]","runtime.any.System.IO":"(,4.3.32767]","runtime.any.System.Reflection":"(,4.3.32767]","runtime.any.System.Reflection.Extensions":"(,4.3.32767]","runtime.any.System.Reflection.Primitives":"(,4.3.32767]","runtime.any.System.Resources.ResourceManager":"(,4.3.32767]","runtime.any.System.Runtime":"(,4.3.32767]","runtime.any.System.Runtime.Handles":"(,4.3.32767]","runtime.any.System.Runtime.InteropServices":"(,4.3.32767]","runtime.any.System.Text.Encoding":"(,4.3.32767]","runtime.any.System.Text.Encoding.Extensions":"(,4.3.32767]","runtime.any.System.Threading.Tasks":"(,4.3.32767]","runtime.any.System.Threading.Timer":"(,4.3.32767]","runtime.aot.System.Collections":"(,4.3.32767]","runtime.aot.System.Diagnostics.Tools":"(,4.3.32767]","runtime.aot.System.Diagnostics.Tracing":"(,4.3.32767]","runtime.aot.System.Globalization":"(,4.3.32767]","runtime.aot.System.Globalization.Calendars":"(,4.3.32767]","runtime.aot.System.IO":"(,4.3.32767]","runtime.aot.System.Reflection":"(,4.3.32767]","runtime.aot.System.Reflection.Extensions":"(,4.3.32767]","runtime.aot.System.Reflection.Primitives":"(,4.3.32767]","runtime.aot.System.Resources.ResourceManager":"(,4.3.32767]","runtime.aot.System.Runtime":"(,4.3.32767]","runtime.aot.System.Runtime.Handles":"(,4.3.32767]","runtime.aot.System.Runtime.InteropServices":"(,4.3.32767]","runtime.aot.System.Text.Encoding":"(,4.3.32767]","runtime.aot.System.Text.Encoding.Extensions":"(,4.3.32767]","runtime.aot.System.Threading.Tasks":"(,4.3.32767]","runtime.aot.System.Threading.Timer":"(,4.3.32767]","runtime.debian.8-x64.runtime.native.System":"(,4.3.32767]","runtime.debian.8-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.debian.8-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.debian.8-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.debian.8-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.debian.9-x64.runtime.native.System":"(,4.3.32767]","runtime.debian.9-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.debian.9-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.debian.9-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.fedora.23-x64.runtime.native.System":"(,4.3.32767]","runtime.fedora.23-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.fedora.23-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.fedora.23-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.fedora.23-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.fedora.24-x64.runtime.native.System":"(,4.3.32767]","runtime.fedora.24-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.fedora.24-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.fedora.24-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.fedora.24-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.fedora.27-x64.runtime.native.System":"(,4.3.32767]","runtime.fedora.27-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.fedora.27-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.fedora.27-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.fedora.28-x64.runtime.native.System":"(,4.3.32767]","runtime.fedora.28-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.fedora.28-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.fedora.28-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.opensuse.13.2-x64.runtime.native.System":"(,4.3.32767]","runtime.opensuse.13.2-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.opensuse.13.2-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.opensuse.13.2-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.opensuse.42.1-x64.runtime.native.System":"(,4.3.32767]","runtime.opensuse.42.1-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.opensuse.42.1-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.opensuse.42.1-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.opensuse.42.3-x64.runtime.native.System":"(,4.3.32767]","runtime.opensuse.42.3-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.opensuse.42.3-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.opensuse.42.3-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.osx.10.10-x64.runtime.native.System":"(,4.3.32767]","runtime.osx.10.10-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.osx.10.10-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.osx.10.10-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple":"(,4.3.32767]","runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.rhel.7-x64.runtime.native.System":"(,4.3.32767]","runtime.rhel.7-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.rhel.7-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.rhel.7-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.rhel.7-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.ubuntu.14.04-x64.runtime.native.System":"(,4.3.32767]","runtime.ubuntu.14.04-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.ubuntu.14.04-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.ubuntu.14.04-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.ubuntu.16.04-x64.runtime.native.System":"(,4.3.32767]","runtime.ubuntu.16.04-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.ubuntu.16.04-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.ubuntu.16.04-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.ubuntu.16.10-x64.runtime.native.System":"(,4.3.32767]","runtime.ubuntu.16.10-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.ubuntu.16.10-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.ubuntu.16.10-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography":"(,4.3.32767]","runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl":"(,4.3.32767]","runtime.ubuntu.18.04-x64.runtime.native.System":"(,4.3.32767]","runtime.ubuntu.18.04-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.ubuntu.18.04-x64.runtime.native.System.Net.Http":"(,4.3.32767]","runtime.ubuntu.18.04-x64.runtime.native.System.Net.Security":"(,4.3.32767]","runtime.unix.Microsoft.Win32.Primitives":"(,4.3.32767]","runtime.unix.System.Console":"(,4.3.32767]","runtime.unix.System.Diagnostics.Debug":"(,4.3.32767]","runtime.unix.System.IO.FileSystem":"(,4.3.32767]","runtime.unix.System.Net.Primitives":"(,4.3.32767]","runtime.unix.System.Net.Sockets":"(,4.3.32767]","runtime.unix.System.Private.Uri":"(,4.3.32767]","runtime.unix.System.Runtime.Extensions":"(,4.3.32767]","runtime.win.Microsoft.Win32.Primitives":"(,4.3.32767]","runtime.win.System.Console":"(,4.3.32767]","runtime.win.System.Diagnostics.Debug":"(,4.3.32767]","runtime.win.System.IO.FileSystem":"(,4.3.32767]","runtime.win.System.Net.Primitives":"(,4.3.32767]","runtime.win.System.Net.Sockets":"(,4.3.32767]","runtime.win.System.Runtime.Extensions":"(,4.3.32767]","runtime.win10-arm-aot.runtime.native.System.IO.Compression":"(,4.0.32767]","runtime.win10-arm64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.win10-x64-aot.runtime.native.System.IO.Compression":"(,4.0.32767]","runtime.win10-x86-aot.runtime.native.System.IO.Compression":"(,4.0.32767]","runtime.win7-x64.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.win7-x86.runtime.native.System.IO.Compression":"(,4.3.32767]","runtime.win7.System.Private.Uri":"(,4.3.32767]","runtime.win8-arm.runtime.native.System.IO.Compression":"(,4.3.32767]","System.AppContext":"(,4.3.32767]","System.Buffers":"(,5.0.32767]","System.Collections":"(,4.3.32767]","System.Collections.Concurrent":"(,4.3.32767]","System.Collections.Immutable":"(,10.0.32767]","System.Collections.NonGeneric":"(,4.3.32767]","System.Collections.Specialized":"(,4.3.32767]","System.ComponentModel":"(,4.3.32767]","System.ComponentModel.Annotations":"(,4.3.32767]","System.ComponentModel.EventBasedAsync":"(,4.3.32767]","System.ComponentModel.Primitives":"(,4.3.32767]","System.ComponentModel.TypeConverter":"(,4.3.32767]","System.Console":"(,4.3.32767]","System.Data.Common":"(,4.3.32767]","System.Data.DataSetExtensions":"(,4.4.32767]","System.Diagnostics.Contracts":"(,4.3.32767]","System.Diagnostics.Debug":"(,4.3.32767]","System.Diagnostics.DiagnosticSource":"(,10.0.32767]","System.Diagnostics.FileVersionInfo":"(,4.3.32767]","System.Diagnostics.Process":"(,4.3.32767]","System.Diagnostics.StackTrace":"(,4.3.32767]","System.Diagnostics.TextWriterTraceListener":"(,4.3.32767]","System.Diagnostics.Tools":"(,4.3.32767]","System.Diagnostics.TraceSource":"(,4.3.32767]","System.Diagnostics.Tracing":"(,4.3.32767]","System.Drawing.Primitives":"(,4.3.32767]","System.Dynamic.Runtime":"(,4.3.32767]","System.Formats.Asn1":"(,10.0.32767]","System.Formats.Tar":"(,10.0.32767]","System.Globalization":"(,4.3.32767]","System.Globalization.Calendars":"(,4.3.32767]","System.Globalization.Extensions":"(,4.3.32767]","System.IO":"(,4.3.32767]","System.IO.Compression":"(,4.3.32767]","System.IO.Compression.ZipFile":"(,4.3.32767]","System.IO.FileSystem":"(,4.3.32767]","System.IO.FileSystem.AccessControl":"(,4.4.32767]","System.IO.FileSystem.DriveInfo":"(,4.3.32767]","System.IO.FileSystem.Primitives":"(,4.3.32767]","System.IO.FileSystem.Watcher":"(,4.3.32767]","System.IO.IsolatedStorage":"(,4.3.32767]","System.IO.MemoryMappedFiles":"(,4.3.32767]","System.IO.Pipelines":"(,10.0.32767]","System.IO.Pipes":"(,4.3.32767]","System.IO.Pipes.AccessControl":"(,5.0.32767]","System.IO.UnmanagedMemoryStream":"(,4.3.32767]","System.Linq":"(,4.3.32767]","System.Linq.AsyncEnumerable":"(,10.0.32767]","System.Linq.Expressions":"(,4.3.32767]","System.Linq.Parallel":"(,4.3.32767]","System.Linq.Queryable":"(,4.3.32767]","System.Memory":"(,5.0.32767]","System.Net.Http":"(,4.3.32767]","System.Net.Http.Json":"(,10.0.32767]","System.Net.NameResolution":"(,4.3.32767]","System.Net.NetworkInformation":"(,4.3.32767]","System.Net.Ping":"(,4.3.32767]","System.Net.Primitives":"(,4.3.32767]","System.Net.Requests":"(,4.3.32767]","System.Net.Security":"(,4.3.32767]","System.Net.ServerSentEvents":"(,10.0.32767]","System.Net.Sockets":"(,4.3.32767]","System.Net.WebHeaderCollection":"(,4.3.32767]","System.Net.WebSockets":"(,4.3.32767]","System.Net.WebSockets.Client":"(,4.3.32767]","System.Numerics.Vectors":"(,5.0.32767]","System.ObjectModel":"(,4.3.32767]","System.Private.DataContractSerialization":"(,4.3.32767]","System.Private.Uri":"(,4.3.32767]","System.Reflection":"(,4.3.32767]","System.Reflection.DispatchProxy":"(,6.0.32767]","System.Reflection.Emit":"(,4.7.32767]","System.Reflection.Emit.ILGeneration":"(,4.7.32767]","System.Reflection.Emit.Lightweight":"(,4.7.32767]","System.Reflection.Extensions":"(,4.3.32767]","System.Reflection.Metadata":"(,10.0.32767]","System.Reflection.Primitives":"(,4.3.32767]","System.Reflection.TypeExtensions":"(,4.3.32767]","System.Resources.Reader":"(,4.3.32767]","System.Resources.ResourceManager":"(,4.3.32767]","System.Resources.Writer":"(,4.3.32767]","System.Runtime":"(,4.3.32767]","System.Runtime.CompilerServices.Unsafe":"(,7.0.32767]","System.Runtime.CompilerServices.VisualC":"(,4.3.32767]","System.Runtime.Extensions":"(,4.3.32767]","System.Runtime.Handles":"(,4.3.32767]","System.Runtime.InteropServices":"(,4.3.32767]","System.Runtime.InteropServices.RuntimeInformation":"(,4.3.32767]","System.Runtime.Loader":"(,4.3.32767]","System.Runtime.Numerics":"(,4.3.32767]","System.Runtime.Serialization.Formatters":"(,4.3.32767]","System.Runtime.Serialization.Json":"(,4.3.32767]","System.Runtime.Serialization.Primitives":"(,4.3.32767]","System.Runtime.Serialization.Xml":"(,4.3.32767]","System.Security.AccessControl":"(,6.0.32767]","System.Security.Claims":"(,4.3.32767]","System.Security.Cryptography.Algorithms":"(,4.3.32767]","System.Security.Cryptography.Cng":"(,5.0.32767]","System.Security.Cryptography.Csp":"(,4.3.32767]","System.Security.Cryptography.Encoding":"(,4.3.32767]","System.Security.Cryptography.OpenSsl":"(,5.0.32767]","System.Security.Cryptography.Primitives":"(,4.3.32767]","System.Security.Cryptography.X509Certificates":"(,4.3.32767]","System.Security.Principal":"(,4.3.32767]","System.Security.Principal.Windows":"(,5.0.32767]","System.Security.SecureString":"(,4.3.32767]","System.Text.Encoding":"(,4.3.32767]","System.Text.Encoding.CodePages":"(,10.0.32767]","System.Text.Encoding.Extensions":"(,4.3.32767]","System.Text.Encodings.Web":"(,10.0.32767]","System.Text.Json":"(,10.0.32767]","System.Text.RegularExpressions":"(,4.3.32767]","System.Threading":"(,4.3.32767]","System.Threading.AccessControl":"(,10.0.32767]","System.Threading.Channels":"(,10.0.32767]","System.Threading.Overlapped":"(,4.3.32767]","System.Threading.Tasks":"(,4.3.32767]","System.Threading.Tasks.Dataflow":"(,10.0.32767]","System.Threading.Tasks.Extensions":"(,5.0.32767]","System.Threading.Tasks.Parallel":"(,4.3.32767]","System.Threading.Thread":"(,4.3.32767]","System.Threading.ThreadPool":"(,4.3.32767]","System.Threading.Timer":"(,4.3.32767]","System.ValueTuple":"(,4.5.32767]","System.Xml.ReaderWriter":"(,4.3.32767]","System.Xml.XDocument":"(,4.3.32767]","System.Xml.XmlDocument":"(,4.3.32767]","System.Xml.XmlSerializer":"(,4.3.32767]","System.Xml.XPath":"(,4.3.32767]","System.Xml.XPath.XDocument":"(,5.0.32767]"}}}
+\ No newline at end of file
