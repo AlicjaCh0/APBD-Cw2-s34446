@@ -101,5 +101,39 @@ public class WypozyczalniaDzialanie
             Console.WriteLine($"{uzytkownik.Imie} zwrócił {sprzet.Nazwa} w terminie.");
         }
     }
+    
+    
+    public void DostepnySprzet()
+    {
+        Console.WriteLine("\nraport:");
+        
+        for (int i = 0; i < _sprzety.Count; i++)
+        {
+            Sprzet s = _sprzety[i];
+            
+            string status = s.CzyDostepny ? "Dostępny" : "Niedostępny";
+            
+            Console.WriteLine($"Dane o sprzecie: {s.Id} | {s.Nazwa} | {status}");
+        }
+    }
+
+    
+    public void WypozyczeniaUzytkownika(Uzytkownik u)
+    {
+        Console.WriteLine($"\nwypozyczenia uzytkownika: {u.Imie} {u.Nazwisko}");
+        
+        for (int i = 0; i < _wypozyczone.Count; i++)
+        {
+           
+            Wypozyczenie w = _wypozyczone[i];
+            
+            if (w.KtoWypozycza.Id == u.Id && w.DataFaktycznegoZwrotu == null)
+            {
+                
+                Console.WriteLine($"- {w.WypozyczonySprzet.Nazwa} (Termin: {w.KiedyZwrot.ToShortDateString()})");
+                
+            }
+        }
+    }
 
 }

@@ -64,4 +64,7 @@ wypozyczalnia.WypozyczenieSprzetu(stPawel, kolejnyLaptop, 2);
 Console.WriteLine("\nJolanta oddaje Della:");
 wypozyczalnia.ZwrotSprzetu(emJoanta, dell);
 
+wypozyczalnia.DostepnySprzet();
+wypozyczalnia.WypozyczeniaUzytkownika(stPawel);
+
 Console.WriteLine("\nkoniec");
