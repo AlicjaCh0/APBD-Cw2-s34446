@@ -2,7 +2,7 @@ System Wypożyczalni Sprzętu - APBD Ćwiczenia 2
 
 Aplikacja przedswtawia działanie wypożyczalni sprzętu.
 
-uruchomienie:
+Uruchomienie:
 
 Otwórz projekt w środowisku np JetBrains Rider
 Uruchom projekt (plik `Program.cs` tutaj testowany jest program). W konsoli pojawi sie scenariusz testowy prezentujący działanie logiki biznesowej.
