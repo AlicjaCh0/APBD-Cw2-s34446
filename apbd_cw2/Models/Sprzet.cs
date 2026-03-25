@@ -9,7 +9,7 @@ public abstract class Sprzet
     
     public bool CzyDostepny { get; set; } = true;
 
-    Sprzet(String nazwa1)
+    public Sprzet(String nazwa1)
     {
         Nazwa = nazwa1;
     }
